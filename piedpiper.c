@@ -1,26 +1,26 @@
 /*
  * Pied Piper Middle Out Compression Algorithm
- * 
+ *
  * Title: 	Pied Piper Algorithm
  * File:	piedpiper.c
  * Author:	Niccolò Ciavarella
  * Date:	04/05/2017
  * Version:	Final Stable
  * License:	GNU Affero General Public License v3
- * 
+ *
  * For more info go to: https://www.pied-piper.cloud/
  * Contact me: n.ciavarella@outlook.it
- * 
+ *
  * All rights reserved.
-*/ 
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #define EI 11
 #define EJ 4
-#define P 1 
-#define N (1 << EI) 
+#define P 1
+#define N (1 << EI)
 #define F ((1 << EJ) + 1)
 
 int bit_buffer = 0, bit_mask = 128;
@@ -324,7 +324,7 @@ void uncompress(void)
 
 int main(int argc, char *argv[])
 {
-    int enc;
+    int compression;
     char *s;
 
     if(argc != 4)
@@ -338,7 +338,7 @@ int main(int argc, char *argv[])
 
     if((s[1] == 0) && ((*s == 'x') || (*s == 'x') || (*s == 'c') || (*s == 'c')))
     {
-        enc = ((*s == 'c') || (*s == 'c'));
+        compression = ((*s == 'c') || (*s == 'c'));
     }
 
     else
@@ -362,7 +362,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    if(enc)
+    if(compression)
     {
         compress();
     }
